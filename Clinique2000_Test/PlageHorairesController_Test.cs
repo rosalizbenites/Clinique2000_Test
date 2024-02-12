@@ -32,7 +32,7 @@ namespace Clinique2000_Test
         }
 
         /// <summary>
-        /// Test quand il n'ya pas des file d'attente cree pour la clinique id=1 
+        /// Test plageHorairesController.Index(Id) quand il n'ya pas des file d'attente pour la clinique id=5 
         /// </summary>
         [Fact]
         public async void Index_GetAllByFileDAttenteId()
@@ -67,8 +67,8 @@ namespace Clinique2000_Test
             _cliniqueService_Mock.Setup(x => x.ObtenirFileDAttenteInscriptionsActives(clinique_One)).Returns(new FileDAttente());
 
             var fileCourante = _plageHorairesController.Index(clinique_One.Id);
-            
-           Assert.NotNull(fileCourante);
+
+            Assert.Equal(1, fileCourante.Id);
         }
 
     }
